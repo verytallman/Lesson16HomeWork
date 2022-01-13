@@ -2,6 +2,11 @@
 
 <suite name="Suite3" verbose="1" >
     <test name="Unit" >
+        <groups>
+            <run>
+                <include name="unit"></include>
+            </run>
+        </groups>
         <classes>
             <class name="org.homework16.ThirdTest" />
         </classes>

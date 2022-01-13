@@ -3,15 +3,10 @@ package org.homework16;
 import org.testng.annotations.*;
 
 public class FirstTest {
-    
-    @BeforeGroups
-    public void beforeGroups(){
-        System.out.println("Before group method.");
-    }
 
-    @BeforeGroups
-    public void afterGroups(){
-        System.out.println("After group method.");
+    @DataProvider (name = "data-provider")
+    public Object[][] dpMethod(){
+        return new Object[][] {{"First passing with using DataProvider"}, {"Second passing with using DataProvider"}};
     }
 
     @BeforeMethod
@@ -25,20 +20,18 @@ public class FirstTest {
     }
 
 
-    @Test(groups = "smoke")
-    public void testMeSome(){
-        System.out.println("This is smoke first test.");
+    @Test(groups = "smoke", dataProvider = "data-provider")
+    public void testMeSome(String str){
+        System.out.println("This is smoke first test. "+ str);
     }
 
-    @Test(groups = "smoke")
-    public void testMeSome1(){
+    @Test(groups = "smoke", dataProvider = "data-provider")
+    public void testMeSome1(String str){
         System.out.println("This is smoke second test.");
-
-
     }
 
-    @Test(groups = "smoke")
-    public void testMeSome2(){
+    @Test(groups = "smoke", dataProvider = "data-provider")
+    public void testMeSome2(String str){
         System.out.println("This is smoke third test.");
     }
 }
